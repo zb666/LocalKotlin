@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<com.coroutine.bod.localkotlin.view.PathMeasureView
+    android:layout_width="100dp"
+    android:layout_height="100dp"/>
+
+  <TextView
+      android:id="@+id/textView"
+      android:text="jump"
+      android:visibility="gone"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
+
+  <com.coroutine.bod.localkotlin.view.MyView
+      android:id="@+id/myView"
+      android:visibility="gone"
+      android:layout_width="100dp"
+      android:layout_height="100dp"/>
+</LinearLayout>

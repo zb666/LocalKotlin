@@ -1,0 +1,12 @@
+
+create:单一的: 自己发送事件
+
+just: 依次发射.
+多个，A,B A和B是顺序发送的
+
+empty:只会发射一次onComplete事件
+
+rxjava for循环
+fromArray: 这里能够进行for循环的打印
+
+GroupedObservable 还需要进行subscribe()

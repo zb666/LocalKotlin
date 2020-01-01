@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:divider="@drawable/umeng_socialize_ynote"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_guide"
+        android:text="base测试"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        app:divider="@drawable/umeng_socialize_ynote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.coroutine.bod.localkotlin.view.MatrixView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"/>
+
+    <com.coroutine.bod.localkotlin.view.PathPosTanView
+        android:id="@+id/posTanView"
+        android:layout_width="300dp"
+        android:layout_height="150dp"/>
+
+    <com.coroutine.bod.localkotlin.view.MyBerizerView
+        android:id="@+id/myBerizer"
+        android:layout_width="300dp"
+        android:layout_height="200dp"/>
+
+    <com.coroutine.bod.localkotlin.view.PathMeasureView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+
+    <com.coroutine.bod.localkotlin.view.SegmentView
+        android:id="@+id/segmentView"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

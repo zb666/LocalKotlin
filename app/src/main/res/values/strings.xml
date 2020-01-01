@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LocalKotlin</string>
+    <string name="sparsearray">sparsearray</string>
+</resources>

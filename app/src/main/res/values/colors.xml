@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorBackgroundStatusBar">@android:color/transparent</color>
+
+    <color name="colorAccent">@color/colorPrimary</color>
+    <color name="colorDisabled">#E9E9E9</color>
+
+    <color name="colorPrimary">@color/focusColorPrimary</color>
+    <color name="colorPrimaryDark">#FFC278</color>
+    <color name="colorDefault">#FFFFFF</color>
+    <color name="colorTags">#769FFF</color>
+
+    <color name="colorPrimaryGreen">#4DC591</color>
+    <color name="colorProgressGreen">#4DC591</color>
+
+    <color name="colorPrimaryText">#9B9B9B</color>
+    <color name="colorPrimaryTextDark">#8B8B8B</color>
+    <color name="colorPrimaryTextInverse">#FFFFFF</color>
+    <color name="colorNewPrimaryText">#666666</color>
+    <color name="colorTextBlack">#000000</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorDeepGreen">#00664F</color>
+    <color name="colorGray">#C1C1C1</color>
+    <color name="colorGray2">#343434</color>
+    <color name="colorGray3">#FBF8F8</color>
+    <color name="colorGray4">#F7F7F7</color>
+    // added Noah
+
+    <color name="colorSecondaryText">#C7C7C7</color>
+
+    <color name="colorBackgroundLight">#FEFEFE</color>
+    <color name="colorBackground">#F2F2F2</color>
+    // added Noah
+    //added 9/20 Noah
+    <color name="colorIslandName">#999999</color>
+    // added Noah
+
+    <!-- Theme colors -->
+    <color name="colorRedDark">#E56D6D</color>
+    <color name="colorShallowOrange">#fff9ad6c</color>
+
+    <color name="colorLightText">#E0E0E0</color>
+    <color name="colorProcessBaseLight">#D8D8D8</color>
+
+    <!--calendar color-->
+    <color name="chart_green">#B6B151</color>
+
+    <!--traintask-->
+    <color name="colorMeditation">#8F99FF</color>
+    <color name="colorAttention">#F9AD6C</color>
+    <color name="colorNeural">#172B88</color>
+    <color name="colorHomeWork">#FF7747</color>
+
+    <!--invalidate-->
+    <color name="colorInvalidate">#F75E36</color>
+    <!--blur -->
+
+    <!-- focus planet train -->
+
+    <color name="colorFocusTrainPrimary">#FFB6B151</color>
+    <color name="colorFocusTextColor1">#FF999999</color>
+
+
+    <!--track -->
+
+    <!-- Modified 9/14 !-->
+    <color name="colorTextPrimary">#666666</color>
+    <color name="colorTextPrimaryMediumLight">#999999</color>
+    <color name="colorTextAccent">@color/colorAccent</color>
+    <color name="colorStorke">#E0E0E0</color>
+    <color name="colorAccentDark">#A09B3F</color>
+    <!-- dialog design-->
+    <color name="colorDialogDivider">#E0E0E0</color>
+    <color name="colorRed">#E62202</color>
+
+    <color name="textColorSecondary">#999999</color>
+    <!-- Connect device step bar -->
+    <color name="colorErrorRed">#E62202</color>
+
+    <color name="divider">#E0E0E0</color>
+
+
+    <!--
+    FocusNow 二期
+    colors name 统一采用驼峰命名法
+    -->
+
+    <!--
+      主题色
+    -->
+    <color name="focusColorPrimary">#FFC278</color>
+    <color name="focusColorPrimaryYellow">#FFC278</color>
+    <color name="focusColorPrimaryShallowYellow">#4dffc278</color>
+
+    <color name="focusTextColor1">#FF333333</color>
+    <color name="focusTextColor2">#FF666666</color>
+    <color name="focusWhiteColor">#FFFFFFFF</color>
+
+    <color name="focusColor1">#FFFF9D4B</color>
+    <color name="focusBackgroundColor">#FFF2F2F2</color>
+    <color name="focusColor3">#FFF1F1F1</color>
+    <color name="focusColor4">#FFD8D8D8</color>
+    <color name="focusColor5">#FFA1A1A1</color>
+
+    <color name="focusColor6">#FF4DDBB9</color>
+    <color name="focusColor7">#FFFF7A30</color>
+    <color name="focusColor8">#FFFFCF3E</color>
+    <color name="focusColor9">#FF29B6FF</color>
+    <color name="focusColor10">#457CFD</color>
+    <color name="focusColor11">#333333</color>
+
+    <color name="focusColor12">#A1A1A1</color>
+    <color name="focusColor13">#E5ECFF</color>
+    <color name="focusColor14">#FF7800</color>
+    <color name="focusColor15">#000000</color>
+
+
+    <!--sign in-->
+    <color name="focusTextCommonGray">#9A9A9A</color>
+
+
+    <color name="focusProgressBgColor">#FFE4E4E4</color>
+
+
+    <color name="focus_black_tip_bg">#26000000</color>
+
+    <!--settings-->
+    <color name="focusSettingBackgroundColor">#F0F0F0</color>
+
+    <color name="edit_text_curve_color">#44D7B6</color>
+
+    <!--promote-->
+    <color name="focus_promote_item">#F6F6F6</color>
+    <color name="promote_colorPrimary">#FFF75E36</color>
+
+    <!--report-->
+    <color name="focus_train_tips">#FF9D4B</color>
+    <color name="focus_train_tips_bg">#FFF7F0</color>
+
+    <!--homework-->
+    <color name="homework_colorPrimary">#FF172B88</color>
+
+    <color name="focus_report_progress_high">#F75E36</color>
+    <color name="focus_high_attention">#F75E36</color>
+    <color name="focus_middle_attention">@color/colorPrimary</color>
+    <color name="focus_low_attention">#172B88</color>
+
+    <!--training-->
+    <color name="colorTraining">#4DC591</color>
+
+
+
+</resources>
