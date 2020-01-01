@@ -32,7 +32,19 @@ import timber.log.Timber
  * @Author: zb666
  * @CreateDate: 2019-09-26
  */
-open class BackFmActivity : FocusBaseActivity() {
+open class BackFmActivity : FocusBaseActivity(), ITask {
+
+    init {
+        val iTask = this as ITask
+        iTask.getName {
+            "TaskName"
+        }.run {
+            Timber.d("HomeWorkViewModel:$this")
+        }
+
+
+
+    }
 
     var aStr = "StrA"
 
@@ -129,6 +141,19 @@ open class BackFmActivity : FocusBaseActivity() {
         }
 
         bytest()
+        invokeTest()
+
+    }
+
+    private fun invokeTest() {
+        val test = Test::class.java
+        val newInstance = test.newInstance()
+        val field = test.getDeclaredField("name")
+        field.isAccessible = true
+
+        field.set(newInstance,"FinalName")
+
+        Timber.d("Field:${field.name}  ${field.get(newInstance)}")
 
     }
 
@@ -190,19 +215,36 @@ open class BackFmActivity : FocusBaseActivity() {
     }
 
     private fun bytest() {
+        (0..100).takeWhile {
+            it < 50
+        }.forEach {
+            Timber.d(":TakeWhile:$it")
+        }
         //pair -> map
         val mapPair = mapOf("1" to "1")
-        val user = User(mapOf("name" to "Bob","age" to 123))
+        val user = User(mapOf("name" to "Bob", "age" to 123))
         user.name //委托给了 map:Map
         user.age
 
-        val example= Example()
+        val example = Example()
 
-        Timber.d("HomeViewModel: ${user.name}  ${user.age}  ${example.prop}" )
+        Timber.d("HomeViewModel: ${user.name}  ${user.age}  ${example.prop}")
     }
 
     class User(val map: Map<String, Any?>) {
         val name: String by map
         val age: Int by map
+    }
+
+
+}
+
+class Test{
+    private val name = "NameTest"
+}
+
+interface ITask {
+    fun getName(a: () -> String): String {
+        return a.invoke()
     }
 }
