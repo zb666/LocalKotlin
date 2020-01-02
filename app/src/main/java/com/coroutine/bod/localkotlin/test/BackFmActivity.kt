@@ -222,18 +222,21 @@ open class BackFmActivity : FocusBaseActivity(), ITask {
         }
         //pair -> map
         val mapPair = mapOf("1" to "1")
-        val user = User(mapOf("name" to "Bob", "age" to 123))
+
+        val user = User(mutableMapOf("name" to "Bob", "age" to 123))
         user.name //委托给了 map:Map
         user.age
+
+        user.age =10
 
         val example = Example()
 
         Timber.d("HomeViewModel: ${user.name}  ${user.age}  ${example.prop}")
     }
 
-    class User(val map: Map<String, Any?>) {
-        val name: String by map
-        val age: Int by map
+    class User(map: MutableMap<String, Any?>) {
+        var name: String by map
+        var age: Int by map
     }
 
 

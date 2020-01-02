@@ -43,6 +43,10 @@ class MatrixView @JvmOverloads constructor(
     }
 
 
+    override fun draw(canvas: Canvas?) {
+        super.draw(canvas)
+    }
+
     private var mMatrix = matrix
     //// setMirrorOne(bitmap1, matrix);
     //		// setInvertedImage(bitmap1, matrix);
