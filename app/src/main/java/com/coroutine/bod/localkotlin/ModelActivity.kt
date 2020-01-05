@@ -3,11 +3,15 @@ package com.coroutine.bod.localkotlin
 import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
+import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
 import android.util.SparseArray
 import androidx.lifecycle.*
 import androidx.lifecycle.Observer
+import com.coroutine.bod.localkotlin.handle.BobHandler
+import com.coroutine.bod.localkotlin.handle.BobLooper
+import com.coroutine.bod.localkotlin.handle.BobMessage
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_model.*
 import kotlinx.coroutines.Dispatchers
@@ -78,10 +82,21 @@ class ModelActivity : AppCompatActivity() {
 
         strSubject.subscribe {
             Timber.d("OnSub:$it")
-
         }
         strSubject.onNext("222")
         testSp()
+
+        listOf(1..10).takeLast(1).forEach {
+            Timber.d("Bob:$it")
+        }
+
+        testBobHandler()
+    }
+
+    private fun testBobHandler() {
+        BobLooper().prepare()
+        BobHandler().enqueueMessage(BobMessage("Any Boj"))
+        BobHandler().sendMessage(BobMessage("send msg"))
     }
 
     private val sparseArray = SparseArray<String>()

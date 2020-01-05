@@ -14,6 +14,7 @@ import com.coroutine.bod.localkotlin.ModelActivity
 import com.coroutine.bod.localkotlin.R
 import com.coroutine.bod.localkotlin.ScTest
 import com.coroutine.bod.localkotlin.sc.Example
+import com.coroutine.bod.localkotlin.test.ByTest
 import com.coroutine.bod.localkotlin.test.TestAFmActivity
 import com.coroutine.bod.localkotlin.view.PathMeasureView
 import com.coroutine.bod.localkotlin.view.PathPosTanView
@@ -34,6 +35,8 @@ import timber.log.Timber
  */
 open class BackFmActivity : FocusBaseActivity(), ITask {
 
+    private var byTest by ByTest()
+
     init {
         val iTask = this as ITask
         iTask.getName {
@@ -41,8 +44,9 @@ open class BackFmActivity : FocusBaseActivity(), ITask {
         }.run {
             Timber.d("HomeWorkViewModel:$this")
         }
+        byTest = ""
 
-
+        Timber.d("ByTest:$byTest $byTest")
 
     }
 
