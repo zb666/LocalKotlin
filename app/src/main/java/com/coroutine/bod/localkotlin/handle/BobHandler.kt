@@ -1,6 +1,8 @@
 package com.coroutine.bod.localkotlin.handle
 
+import android.content.Context
 import android.os.Looper
+import androidx.appcompat.widget.SwitchCompat
 
 /**
  *
@@ -11,7 +13,7 @@ import android.os.Looper
  */
 
 //每个线程都会有Handler
-class BobHandler {
+class BobHandler() {
 
     //有MessageQueue不过是由Looper负责去调度的
     private var mQueue:MessageQueue
@@ -19,7 +21,7 @@ class BobHandler {
     private lateinit var myLooper: BobLooper
 
 
-    constructor(){
+    init {
         val bobLooper = BobLooper()
         mQueue = bobLooper.messageQueue
         myLooper = bobLooper
@@ -29,7 +31,6 @@ class BobHandler {
         msg.target = this //方便取回来,取回来之后调用dispatchMessage()方法
         mQueue.enqueueMessage(msg)
     }
-
 
     fun sendMessage(msg: BobMessage){
         enqueueMessage(msg)

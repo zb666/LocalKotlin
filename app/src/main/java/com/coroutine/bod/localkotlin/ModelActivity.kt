@@ -1,5 +1,6 @@
 package com.coroutine.bod.localkotlin
 
+import android.animation.ObjectAnimator
 import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
@@ -7,8 +8,12 @@ import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
 import android.util.SparseArray
+import android.view.animation.Animation
+import android.view.animation.RotateAnimation
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.*
 import androidx.lifecycle.Observer
+import com.blankj.utilcode.util.TimeUtils
 import com.coroutine.bod.localkotlin.handle.BobHandler
 import com.coroutine.bod.localkotlin.handle.BobLooper
 import com.coroutine.bod.localkotlin.handle.BobMessage
@@ -37,10 +42,29 @@ class ModelActivity : AppCompatActivity() {
         val file = File(cacheDir, "test")
         val exists = file.exists()
 
+        "05:14:49".run {
+            Timber.d("Time: ${substring(0,2)} ${substring(3,5)} ${substring(6,8)}")
+        }
+
+        ObjectAnimator
+            .ofFloat(tv_selector, "rotation", 0.0F, -180.0F)
+            .apply {
+                duration = 0L
+                repeatCount = 10
+            }
+            .start()
+
+        TimeUtils.millis2Date(100*1000).run {
+            Timber.d("ForMatTime:${this.time}")
+        }
+
         val arrayDeque = ArrayDeque<String>()
         arrayDeque.add("")
         arrayDeque.pollFirst()
 
+        tv_selector.setOnClickListener {
+            it.isSelected = !it.isSelected
+        }
 
         lifecycle.addObserver(MyObserver())
 
