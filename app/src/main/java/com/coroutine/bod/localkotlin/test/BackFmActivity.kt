@@ -23,7 +23,9 @@ import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_back_fm.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.flow
 import timber.log.Timber
+import kotlin.coroutines.CoroutineContext
 
 
 /**
@@ -33,7 +35,7 @@ import timber.log.Timber
  * @Author: zb666
  * @CreateDate: 2019-09-26
  */
-open class BackFmActivity : FocusBaseActivity(), ITask {
+open class BackFmActivity : FocusBaseActivity(), ITask,CoroutineScope by MainScope() {
 
     private var byTest by ByTest()
 
@@ -63,6 +65,7 @@ open class BackFmActivity : FocusBaseActivity(), ITask {
 //        window.setBackgroundDrawable(null)
         val layoutParams = myBerizer.layoutParams as LinearLayout.LayoutParams
         layoutParams.bottomMargin = 100
+
 
         GlobalScope.launch(Dispatchers.Main) {
             segmentView.startCircle()
@@ -146,8 +149,15 @@ open class BackFmActivity : FocusBaseActivity(), ITask {
 
         bytest()
         invokeTest()
+        flowTest()
 
     }
+
+    private fun flowTest() {
+
+
+    }
+
 
     private fun invokeTest() {
         val test = Test::class.java

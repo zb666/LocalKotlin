@@ -1,6 +1,7 @@
 package com.coroutine.bod.localkotlin
 
 import android.animation.ObjectAnimator
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
@@ -17,6 +18,7 @@ import com.blankj.utilcode.util.TimeUtils
 import com.coroutine.bod.localkotlin.handle.BobHandler
 import com.coroutine.bod.localkotlin.handle.BobLooper
 import com.coroutine.bod.localkotlin.handle.BobMessage
+import com.coroutine.bod.localkotlin.view.CircleDrawable
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_model.*
 import kotlinx.coroutines.Dispatchers
@@ -36,6 +38,10 @@ class ModelActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_model)
+
+        iv_drawable.setImageDrawable(
+            CircleDrawable(BitmapFactory.decodeResource(resources,R.mipmap.leak_canary_icon))
+        )
 
         funTest()
 
@@ -124,6 +130,7 @@ class ModelActivity : AppCompatActivity() {
     }
 
     private val sparseArray = SparseArray<String>()
+
     private fun testSp() {
         sparseArray.put(R.string.sparsearray, "")
     }
