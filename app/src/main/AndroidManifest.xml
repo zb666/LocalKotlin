@@ -25,6 +25,7 @@
         <activity android:name=".ScTest" />
         <activity android:name=".sc.ScTestClone" />
         <activity android:name=".TestSenceActivity" />
+        <activity android:name=".ModelObsViewActivity" />
     </application>
 
 </manifest>

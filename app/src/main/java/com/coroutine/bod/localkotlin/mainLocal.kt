@@ -23,4 +23,20 @@ fun main() {
 
     val a = 1.0f/21*100
     log("$a")
+
+    val bbb = BBB()
+    bbb.name.run { println(this) }
 }
+
+
+sealed class Base(name:String){
+
+    class A(name: String,a:Int) : Base(name)
+
+}
+
+open class Test(private val name:String)
+
+class BBB(val name:String = "Test"):Test(name)
+
+

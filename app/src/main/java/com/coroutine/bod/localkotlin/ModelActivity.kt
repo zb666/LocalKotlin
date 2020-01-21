@@ -1,6 +1,7 @@
 package com.coroutine.bod.localkotlin
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
+import android.text.format.Time
 import android.util.SparseArray
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
@@ -19,21 +21,23 @@ import com.coroutine.bod.localkotlin.handle.BobHandler
 import com.coroutine.bod.localkotlin.handle.BobLooper
 import com.coroutine.bod.localkotlin.handle.BobMessage
 import com.coroutine.bod.localkotlin.view.CircleDrawable
+import com.coroutine.bod.localkotlin.viewmodel.HomeViewModel
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_model.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.collect
+import test.BackFmActivity
 import timber.log.Timber
 import java.io.File
 import java.util.*
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-class ModelActivity : AppCompatActivity() {
+class ModelActivity : AppCompatActivity(),CoroutineScope by MainScope() {
 
-    val liveData = MutableLiveData<String>()
+    private val liveData = MutableLiveData<String>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +47,49 @@ class ModelActivity : AppCompatActivity() {
             CircleDrawable(BitmapFactory.decodeResource(resources,R.mipmap.leak_canary_icon))
         )
 
+
+        Calendar.getInstance().get(Calendar.HOUR_OF_DAY).run {
+            Timber.d("HourDay:$this")
+        }
+
+            val timeZone = TimeZone.getTimeZone("GMT+0")
+
         funTest()
+
+        runBlocking {
+            listOf("1","2","3").asFlow().collect {value->
+                println(value)
+            }
+
+        }
+
+        launch {
+            launch {
+                Timber.d("Test:00000")
+                var a = async {
+                    delay(3000)
+                }.await()
+
+                var b = async {
+                    delay(3000)
+                }.await()
+
+                Timber.d("Test:11111")
+            }
+
+            runBlocking {
+                kotlinx.coroutines.delay(3000)
+                Timber.d("Test:bkbk")
+            }
+            Timber.d("Test:22222")
+            Timber.d("Test:22222")
+        }
+
+        launch {
+            delay(1000)
+            liveData.value = "SetValue Success"
+        }
+        startActivity(Intent(this,MainActivity::class.java))
 
         val file = File(cacheDir, "test")
         val exists = file.exists()
@@ -96,6 +142,7 @@ class ModelActivity : AppCompatActivity() {
             }
         })
 
+
         tv_click.setOnClickListener {
             //            findTitle("MyName").observe(this, Observer {
 //                Timber.d("MyData:$it")
@@ -136,6 +183,10 @@ class ModelActivity : AppCompatActivity() {
     }
 
     fun copy(dest: Array<Double>, scr: Array<Double>) {
+
+    }
+
+    suspend fun addData(){
 
     }
 

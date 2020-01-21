@@ -9,12 +9,10 @@ import androidx.core.view.ViewCompat
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator
 import androidx.lifecycle.Observer
 import androidx.lifecycle.liveData
-import com.coroutine.bod.localkotlin.FocusBaseActivity
-import com.coroutine.bod.localkotlin.ModelActivity
-import com.coroutine.bod.localkotlin.R
-import com.coroutine.bod.localkotlin.ScTest
+import com.coroutine.bod.localkotlin.*
 import com.coroutine.bod.localkotlin.sc.Example
 import com.coroutine.bod.localkotlin.test.ByTest
+import com.coroutine.bod.localkotlin.test.TaskTest
 import com.coroutine.bod.localkotlin.test.TestAFmActivity
 import com.coroutine.bod.localkotlin.view.PathMeasureView
 import com.coroutine.bod.localkotlin.view.PathPosTanView
@@ -35,7 +33,7 @@ import kotlin.coroutines.CoroutineContext
  * @Author: zb666
  * @CreateDate: 2019-09-26
  */
-open class BackFmActivity : FocusBaseActivity(), ITask,CoroutineScope by MainScope() {
+open class BackFmActivity : FocusBaseActivity(), ITask by TaskTest(""),CoroutineScope by MainScope() {
 
     private var byTest by ByTest()
 
@@ -61,11 +59,12 @@ open class BackFmActivity : FocusBaseActivity(), ITask,CoroutineScope by MainSco
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        startActivity(Intent(this, ModelActivity::class.java))
+        startActivity(Intent(this, ModelObsViewActivity::class.java))
 //        window.setBackgroundDrawable(null)
         val layoutParams = myBerizer.layoutParams as LinearLayout.LayoutParams
         layoutParams.bottomMargin = 100
 
+        a("TestLogin")
 
         GlobalScope.launch(Dispatchers.Main) {
             segmentView.startCircle()
@@ -253,7 +252,6 @@ open class BackFmActivity : FocusBaseActivity(), ITask,CoroutineScope by MainSco
         var age: Int by map
     }
 
-
 }
 
 class Test{
@@ -264,4 +262,6 @@ interface ITask {
     fun getName(a: () -> String): String {
         return a.invoke()
     }
+
+    fun a(name: String)
 }
