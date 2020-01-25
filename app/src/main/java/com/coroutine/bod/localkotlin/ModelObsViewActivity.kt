@@ -23,6 +23,7 @@ import com.coroutine.bod.localkotlin.handle.BobLooper
 import com.coroutine.bod.localkotlin.handle.BobMessage
 import com.coroutine.bod.localkotlin.view.CircleDrawable
 import com.coroutine.bod.localkotlin.viewmodel.HomeViewModel
+import io.flutter.facade.Flutter
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_model.*
 import kotlinx.coroutines.*
