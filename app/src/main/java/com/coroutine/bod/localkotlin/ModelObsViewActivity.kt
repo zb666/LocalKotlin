@@ -24,6 +24,7 @@ import com.coroutine.bod.localkotlin.handle.BobMessage
 import com.coroutine.bod.localkotlin.view.CircleDrawable
 import com.coroutine.bod.localkotlin.viewmodel.HomeViewModel
 import io.flutter.facade.Flutter
+import io.flutter.plugin.common.MethodChannel
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_model.*
 import kotlinx.coroutines.*
@@ -41,6 +42,13 @@ class ModelObsViewActivity : AppCompatActivity(),CoroutineScope by MainScope(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fm_one)
+
+//        MethodChannel("","com.aaa/plugin(路径名)").setMethodCallHandler { methodCall, result ->
+//            if (methodCall.method == "callNative"){
+//                result.success("Call Success")
+//            }
+//        }
+
     }
 
 
