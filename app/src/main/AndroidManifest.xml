@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ModelActivity"></activity>
         <activity android:name=".MainActivity" />
-        <activity android:name="test.BackFmActivity">
+        <activity android:name=".TestSenceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +24,7 @@
         <activity android:name=".test.TestBFmActivity" />
         <activity android:name=".ScTest" />
         <activity android:name=".sc.ScTestClone" />
-        <activity android:name=".TestSenceActivity" />
+        <activity android:name="test.BackFmActivity" />
         <activity android:name=".ModelObsViewActivity" />
     </application>
 
