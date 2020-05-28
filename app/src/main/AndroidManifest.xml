@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.coroutine.bod.localkotlin">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -26,6 +28,9 @@
         <activity android:name=".sc.ScTestClone" />
         <activity android:name="test.BackFmActivity" />
         <activity android:name=".ModelObsViewActivity" />
+        <activity android:name=".arouter.YourActivity" />
+
+        <service android:name=".demo.MyService" />
     </application>
 
 </manifest>

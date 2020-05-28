@@ -10,5 +10,9 @@
         android:layout_width="200dp"
         android:layout_height="200dp"/>
 
+    <com.coroutine.bod.localkotlin.view.GetSegumentView
+        android:layout_marginTop="100dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
 
 </LinearLayout>

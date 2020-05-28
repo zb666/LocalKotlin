@@ -1,14 +1,15 @@
 package com.coroutine.bod.localkotlin
 
-import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.lifecycleScope
+import com.coroutine.bod.localkotlin.api.UserViewModel
+import com.coroutine.bod.localkotlin.jetpackdemo.test.TestViewModel
+import com.tencent.mmkv.MMKV
 import kotlinx.coroutines.*
-import test.BackFmActivity
 import test.FmOne
 import timber.log.Timber
-import java.util.*
 import kotlin.collections.ArrayList
 
 //, CoroutineScope by MainScope()
@@ -18,12 +19,25 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     var globalJob: Job? = null
 
+    private val viewModel by lazy {
+        ViewModelProviders.of(this).get(TestViewModel::class.java)
+    }
+
+    private val userViewModel by lazy {
+        ViewModelProviders.of(this).get(UserViewModel::class.java)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
+        viewModel.getData()
 //        startActivity(Intent(this,BackFmActivity::class.java))
         name = "Main Name"
         testList()
+        testMMKV()
         R.string.brvah_app_name
         launch(Dispatchers.IO) {
             globalJob = GlobalScope.launch {
@@ -51,13 +65,27 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
             }
         }
 
+        lifecycleScope.launch {
+
+        }
+
         initFragment()
 
+        viewModel.result.observe(this, androidx.lifecycle.Observer {
+            Timber.d("Value Test:$this")
+        })
+
+    }
+
+    private fun testMMKV() {
+        val mmkvKey = MMKV.defaultMMKV()
+        mmkvKey.encode("Code", "Code_String")
+        Timber.d("MMKV File ${mmkvKey.decodeString("Code")}")
     }
 
     private fun initFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fl_container,FmOne())
+            .replace(R.id.fl_container, FmOne())
             .commit()
     }
 

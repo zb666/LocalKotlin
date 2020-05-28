@@ -24,8 +24,8 @@ class CarSurfaceView @JvmOverloads constructor(
 
     private var isDrawing = false
 
-    var aX:Float = 0f
-    var aY:Float = 400f
+    var aX: Float = 0f
+    var aY: Float = 400f
 
     private val mPath = Path()
 
@@ -38,7 +38,7 @@ class CarSurfaceView @JvmOverloads constructor(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             focusable = FOCUSABLE
         }
-        mPath.moveTo(x,y)
+        mPath.moveTo(x, y)
     }
 
     override fun surfaceChanged(holder: SurfaceHolder?, format: Int, width: Int, height: Int) {
@@ -63,15 +63,15 @@ class CarSurfaceView @JvmOverloads constructor(
     }
 
     private fun startDraw() {
-        var canvas:Canvas? = null
+        var canvas: Canvas? = null
         try {
             canvas = holder.lockCanvas().apply {
                 drawColor(Color.WHITE)
-                drawPath(mPath,mPaint)
+                drawPath(mPath, mPaint)
             }
-        }catch (t:Exception){
+        } catch (t: Exception) {
             t.printStackTrace()
-        }finally {
+        } finally {
             canvas?.run {
                 holder.unlockCanvasAndPost(this)
             }

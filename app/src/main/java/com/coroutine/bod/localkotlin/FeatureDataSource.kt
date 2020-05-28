@@ -21,3 +21,12 @@ import javax.sql.DataSource
 //interface IDataSource{
 //    fun fetchWeather():LiveData<String>
 //}
+
+fun main(){
+    val testAAA = ::testPrint
+    testAAA.invoke("Hello From Bob")
+}
+
+fun testPrint(value:String){
+    print(value)
+}

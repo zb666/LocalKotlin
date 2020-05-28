@@ -35,32 +35,32 @@ class ClipCanvasView @JvmOverloads constructor(
         canvas?.apply {
             drawColor(Color.GRAY)
             restore()
-            withClip(path.apply {
-                addRect(RectF(0f,0f,width.toFloat(),height*0.8f),Path.Direction.CW)
-            }){
-                drawRect(0f,0f,width.toFloat(),height.toFloat(),paint.apply {
-                    color = Color.GREEN
-                })
-            }
-
-            withClip(path.apply {
-                reset()
-                addCircle(width.toFloat()*0.5f,width.toFloat()*0.5f,width.toFloat()*0.35f,Path.Direction.CW)
-//                addRect(RectF(0f,0f,width.toFloat(),height*0.6f),Path.Direction.CW)
-            }){
-                drawRect(0f,0f,width.toFloat(),height.toFloat(),paint.apply {
-                    color = Color.RED
-                })
-            }
-
-            withClip(path.apply {
-                reset()
-                addRect(RectF(0f,height*0.4f,width.toFloat(),height*0.9f),Path.Direction.CW)
-            }){
-                drawRect(0f,0f,width.toFloat(),height.toFloat(),paint.apply {
-                    color = Color.GRAY
-                })
-            }
+//            withClip(path.apply {
+//                addRect(RectF(0f,0f,width.toFloat(),height*0.8f),Path.Direction.CW)
+//            }){
+//                drawRect(0f,0f,width.toFloat(),height.toFloat(),paint.apply {
+//                    color = Color.GREEN
+//                })
+//            }
+//
+//            withClip(path.apply {
+//                reset()
+//                addCircle(width.toFloat()*0.5f,width.toFloat()*0.5f,width.toFloat()*0.35f,Path.Direction.CW)
+////                addRect(RectF(0f,0f,width.toFloat(),height*0.6f),Path.Direction.CW)
+//            }){
+//                drawRect(0f,0f,width.toFloat(),height.toFloat(),paint.apply {
+//                    color = Color.RED
+//                })
+//            }
+//
+//            withClip(path.apply {
+//                reset()
+//                addRect(RectF(0f,height*0.4f,width.toFloat(),height*0.9f),Path.Direction.CW)
+//            }){
+//                drawRect(0f,0f,width.toFloat(),height.toFloat(),paint.apply {
+//                    color = Color.GRAY
+//                })
+//            }
 
 
         }

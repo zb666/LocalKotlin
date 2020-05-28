@@ -17,13 +17,13 @@ import kotlinx.coroutines.withContext
  */
 class UserAppViewModel(app:Application):AndroidViewModel(app) {
 
-    private val repository:UserRepository
+    private lateinit var repository:UserRepository
 
 
     init {
         //database->dao->user
         val userDao = AppDataBase.getDataBase(app).userBean()
-        repository = UserRepository(userDao)
+//        repository = UserRepository(userDao)
     }
 
     fun insert(user: User){
