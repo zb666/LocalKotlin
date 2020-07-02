@@ -1,5 +1,9 @@
 package com.coroutine.bod.localkotlin;
 
+import android.view.View;
+
+import com.coroutine.bod.localkotlin.simple5.s04.Foo;
+
 /**
  * @ClassName: DemoTest
  * @Description:
@@ -7,8 +11,11 @@ package com.coroutine.bod.localkotlin;
  * @CreateDate: 2020-04-23
  */
 public class DemoTest {
-    {
-        System.out.println("构造代码块");
-    }
 
+    {
+        Foo.sayHello();
+        View view;
+        System.out.println("构造代码块");
+
+    }
 }

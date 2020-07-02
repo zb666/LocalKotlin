@@ -1,18 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <ImageView
         android:id="@+id/iv_error"
+        android:scaleType="fitXY"
         android:src="@drawable/focus_earth"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"/>
+
+    <TextView
+        android:id="@+id/tv_limit"
+        android:text="限制点击"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"/>
+
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        app:qmui_radius="@dimen/dp_10"
+        app:qmui_borderWidth="@dimen/dp_4"
+        app:qmui_borderColor="@color/btn_ghost_blue_border_disabled"
+        app:qmui_backgroundColor="@color/colorDeepGreen"
         android:layout_width="200dp"
-        android:layout_height="200dp"/>
+        android:layout_height="50dp"/>
 
     <com.coroutine.bod.localkotlin.view.GetSegumentView
         android:layout_marginTop="100dp"
         android:layout_width="200dp"
         android:layout_height="200dp"/>
+
+    <androidx.constraintlayout.helper.widget.Layer
+        android:id="@+id/mLayer"
+        android:background="@drawable/dk_app_toast_shape"
+        app:constraint_referenced_ids="iv_error,tv_limit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

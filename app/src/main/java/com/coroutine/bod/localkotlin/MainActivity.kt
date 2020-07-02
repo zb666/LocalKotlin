@@ -10,6 +10,7 @@ import com.tencent.mmkv.MMKV
 import kotlinx.coroutines.*
 import test.FmOne
 import timber.log.Timber
+import java.util.concurrent.ThreadPoolExecutor
 import kotlin.collections.ArrayList
 
 //, CoroutineScope by MainScope()
@@ -30,8 +31,6 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
 
         viewModel.getData()
 //        startActivity(Intent(this,BackFmActivity::class.java))

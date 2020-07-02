@@ -11,7 +11,9 @@ import java.util.Set;
  * @Author: zb666
  * @CreateDate: 2019-11-30
  */
+@IPermiss(age = 1,array = {1,2})
 public class JavaA {
+    int value[] = {1,2,3};
     private String name=  " name";
     void  main(){
         Type superclass = getClass().getGenericSuperclass(); //继承
@@ -19,15 +21,14 @@ public class JavaA {
         Type[] superType = getClass().getGenericInterfaces(); //接口实现
         //获取泛型列表
        ParameterizedType parameterizedType = (ParameterizedType) superType[0];
-
-       Set set = new HashSet();
-       set.add("");
-
-       getUnion(new HashSet<String>(222));
+        Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+        Set set = new HashSet();
+        set.add("");
+        getUnion(new HashSet<String>(222));
     }
 
-
-    void getUnion(Set<?> s1){
+    @SuppressWarnings("unchecked")
+    private synchronized void getUnion(Set<String> s1){
         int size = s1.size();
     }
 }

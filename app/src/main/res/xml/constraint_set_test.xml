@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayoutStates
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <State
+        android:id="@+id/loading"
+        app:constraints="@layout/activity_state_start"/>
+
+    <State
+        android:id="@+id/success"
+        app:constraints="@layout/activity_state_end"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayoutStates>

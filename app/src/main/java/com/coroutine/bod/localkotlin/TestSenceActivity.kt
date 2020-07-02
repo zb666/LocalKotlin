@@ -1,29 +1,40 @@
 package com.coroutine.bod.localkotlin
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.BounceInterpolator
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.arch.core.util.Function
 import androidx.asynclayoutinflater.view.AsyncLayoutInflater
 import androidx.lifecycle.*
 import com.alibaba.android.arouter.launcher.ARouter
+import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.coroutine.bod.localkotlin.db.AppDataBase
 import com.coroutine.bod.localkotlin.db.User
 import com.coroutine.bod.localkotlin.db.UserAppViewModel
 import com.coroutine.bod.localkotlin.db.UserRepository
 import com.coroutine.bod.localkotlin.demo.MyService
+import com.coroutine.bod.localkotlin.service.JobHandlerService
+import com.coroutine.bod.localkotlin.service.TestService
 import com.tencent.mmkv.MMKV
+import io.reactivex.Observable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_testsence.*
+import kotlinx.android.synthetic.main.activity_your.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import okhttp3.*
 import timber.log.Timber
+import java.io.IOException
+import java.util.concurrent.locks.ReentrantLock
 
 /**
  *
@@ -42,6 +53,12 @@ class TestSenceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_testsence)
 
+        Observable.just("1")
+            .subscribeOn(Schedulers.computation())
+            .observeOn(Schedulers.newThread())
+            .subscribe {
+
+            }
         AsyncLayoutInflater(this).inflate(
             R.layout.activity_testsence,
             null
@@ -54,15 +71,42 @@ class TestSenceActivity : AppCompatActivity() {
     //            .into(iv_error)
     //        iv_error.setImageResource(R.drawable.focus_earth)
 
+            BarUtils.getActionBarHeight()
+            startGuardService()
             val userLiveData = MutableLiveData<String>()
-            Transformations.switchMap(userLiveData, Function<String, LiveData<Int>> {
-                //这里的数据可以从数据库中进行获取 Room或者Paging
-                getIntLiveData(it)
-            }).observe(this, Observer {
-                Timber.d("sence hashcode :$it")
+//            Transformations.switchMap(*userLiveData, Function<String, LiveData<Int>> {
+//                //这里的数据可以从数据库中进行获取 Room或者Paging
+//                getIntLiveData(it)
+//            }).observe(this, Observer {
+//                Timber.d("sence hashcode :$it")
+//            })
+//
+//            Glide.with(this).load(IMAGE_URL)
+//                .thumbnail(0.2f)
+//                .into()
+
+            val okHttpClient = OkHttpClient()
+            val request = Request.Builder()
+                .url("url start request")
+                .get()
+                .build()
+            val newCall = okHttpClient.newCall(request)
+
+            newCall.enqueue(object:Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                }
             })
 
+            val reentrantLock = ReentrantLock()
+            reentrantLock.tryLock()
 
+            tv_limit.setOnLimitClickListener {
+                print("item clicked")
+                Timber.d("Item Clicked")
+            }
             //从数据库中拉取
             userLiveData.postValue("MyName")
             iv_error.setOnClickListener {
@@ -101,6 +145,12 @@ class TestSenceActivity : AppCompatActivity() {
 
         testMMKV()
 
+//        ToastUtils.showLong(BuildConfig.BugId)
+    }
+
+
+    private fun startGuardService() {
+        startService(Intent(this, TestService::class.java))
     }
 
     private fun testMMKV() {
