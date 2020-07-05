@@ -1,5 +1,6 @@
 package com.coroutine.bod.localkotlin
 
+import android.os.Process
 import android.os.SystemClock
 import timber.log.Timber
 import kotlin.concurrent.thread
@@ -14,6 +15,7 @@ import kotlin.math.log
  */
 
 class AAA{
+
     fun main() {
 
         val thread3 = Thread(A())
@@ -29,6 +31,11 @@ class AAA{
 
         val a = 1.0f/21*100
         log("$a")
+
+        thread {  }.priority = Thread.MIN_PRIORITY
+
+        Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND)
+
     }
 
 }

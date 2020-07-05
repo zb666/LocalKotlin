@@ -14,16 +14,18 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ModelActivity"></activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".ModelObsViewActivity">
+
+        <activity android:name=".test.TestBFmActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".TestSenceActivity" />
         <activity android:name=".test.TestAFmActivity" />
-        <activity android:name=".test.TestBFmActivity" />
+        <activity android:name=".ModelObsViewActivity" />
         <activity android:name=".ScTest" />
         <activity android:name=".sc.ScTestClone" />
         <activity android:name="test.BackFmActivity" />
@@ -33,6 +35,20 @@
         <service android:name=".demo.MyService" />
         <service android:name=".service.TestService" />
         <service android:name=".service.JobHandlerService" />
+
+        <activity-alias
+            android:name=".Test11"
+            android:label="双11"
+            android:enabled="false"
+            android:icon="@drawable/focus_earth"
+            android:targetActivity=".test.TestBFmActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
     </application>
 
 </manifest>

@@ -13,8 +13,6 @@ public class OtherActivity extends FocusBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other);
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fl_other, new FmOne())
-                .commit();
+
     }
 }

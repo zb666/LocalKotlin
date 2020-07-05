@@ -125,7 +125,6 @@ class ModelActivity : AppCompatActivity(),CoroutineScope by MainScope() {
             //            Timber.d("OnSub:$it")
         }
 
-
         dailyView.setProgress(3)
         dailyView.setOnClickListener {
             liveData.value = (0..10).random().toString()
